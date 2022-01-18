@@ -3,7 +3,8 @@ class User{
 
     index(req,res){
 
-       res.render('../views/index')
+       res.render('ok')
+       //res.render('../views/index')
 
     }
 
