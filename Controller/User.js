@@ -17,7 +17,13 @@ class User{
 
     create(req,res){
 
-       res.send('creiando');
+       res.render('../views/create')
+    }
+
+    insert(req,res){
+
+       console.log(req.body);
+
     }
 }
 

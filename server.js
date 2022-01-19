@@ -1,7 +1,6 @@
 const Router = require('./Router/index')
 const express = require('express');
 const app = express();
-const axios = require('axios');
 const Port = process.env.Port || '3000';
 
 app.use('/',Router);
