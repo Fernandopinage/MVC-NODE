@@ -17,7 +17,7 @@ class User{
 
     insert(req,res){
 
-     const usuario =  ModalUser.insert(req);
+     const usuario =  ModalUser.create(req);
 
 
     }
