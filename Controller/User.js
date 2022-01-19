@@ -14,6 +14,11 @@ class User{
 
 
     }
+
+    create(req,res){
+
+       res.send('creiando');
+    }
 }
 
 module.exports = new User();
