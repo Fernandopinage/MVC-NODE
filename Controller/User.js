@@ -1,4 +1,5 @@
 const app = require('../Router/index')
+const ModalUser = require('../Modal/User')
 class User{
 
     index(req,res){
@@ -8,12 +9,6 @@ class User{
 
     }
 
-    sobre(req,res){
-
-        res.render('../View/sobre')
-
-
-    }
 
     create(req,res){
 
@@ -22,7 +17,8 @@ class User{
 
     insert(req,res){
 
-       console.log(req.body);
+     const usuario =  ModalUser.insert(req);
+
 
     }
 }
