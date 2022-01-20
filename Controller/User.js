@@ -16,9 +16,12 @@ class User{
     }
 
     insert(req,res){
+     const insertUsuario =  ModalUser.create(req);
+    }
 
-     const usuario =  ModalUser.create(req);
-
+    select(){
+      const selectUsuario =  ModalUser.select();
+      console.log(selectUsuario);
 
     }
 }
