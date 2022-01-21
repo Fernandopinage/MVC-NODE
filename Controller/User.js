@@ -19,9 +19,16 @@ class User{
      const insertUsuario =  ModalUser.create(req);
     }
 
-    select(){
-      const selectUsuario =  ModalUser.select();
-      console.log(selectUsuario);
+    async select(){
+
+      try {
+         var [selectUsuario] = await  ModalUser.select();
+         console.log(selectUsuario); 
+      } catch (error) {
+         
+         console.log(error);
+      }
+
 
     }
 }

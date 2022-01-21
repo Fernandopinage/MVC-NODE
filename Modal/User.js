@@ -19,18 +19,14 @@ class ModalUser {
         })
     }
 
-    select(){
-        let sql ='SELECT * FROM `usuario` WHERE 1';
-        con.query(sql,(err,result)=>{
-            if(!err){
-
-              return result;
-            }
-        });
+    async select(){
+        let sql ='SELECT * FROM `usuario`';
+        const result = await con.promise().query(sql)
+        
+        return result;
     }
 
 
 }
-
 
 module.exports = new ModalUser();
