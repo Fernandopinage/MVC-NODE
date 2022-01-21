@@ -10,6 +10,29 @@ class User{
     }
 
 
+    async validarLogin(req,res){
+
+      let dados = req.body;
+
+      try {
+         const [validar] = await ModalUser.validarUsuario(dados);
+         //console.log(validar)   
+         
+         if(Object.keys(validar).length > 0){
+            res.send('logado com sucesso');
+         }else{
+            res.send('fail')
+         }
+
+
+      } catch (error) {
+
+         console.log(error)
+         
+      }
+    }
+
+
     create(req,res){
 
        res.render('../View/create')

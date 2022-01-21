@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 /* Rota de Usuario */
 app.get('/', User.index);
+app.post('/login/validar',User.validarLogin)
 app.get('/user/all', User.select)
 app.get('/novo/usuario',User.create);
 app.post('/inser/usuario',User.insert);

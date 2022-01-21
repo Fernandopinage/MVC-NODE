@@ -19,10 +19,18 @@ class ModalUser {
         })
     }
 
+    async validarUsuario(dados){
+
+       // console.log(dados);
+        let sql = "SELECT * FROM `usuario` WHERE user_email = '"+dados.email+"' and user_senha = '"+dados.password+"'";
+        const result = await con.promise().query(sql);
+        return result;
+    
+    }
+
     async select(req,res){
         let sql ='SELECT * FROM `usuario`';
         const result = await con.promise().query(sql)
-        
         return result;
     }
 
