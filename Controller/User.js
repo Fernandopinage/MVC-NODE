@@ -24,7 +24,6 @@ class User{
             res.send('fail')
          }
 
-
       } catch (error) {
 
          console.log(error)
