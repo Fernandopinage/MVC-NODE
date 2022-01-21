@@ -23,7 +23,7 @@ class ModalUser {
         let sql ='SELECT * FROM `usuario`';
         const result = await con.promise().query(sql)
         
-        return result;
+        return result
     }
 
 
