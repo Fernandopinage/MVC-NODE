@@ -9,6 +9,11 @@ class User{
 
     }
 
+    home(req,res){
+
+      res.render('../View/home');
+
+    }
 
     async validarLogin(req,res){
 
@@ -19,9 +24,10 @@ class User{
          //console.log(validar)   
          
          if(Object.keys(validar).length > 0){
-            res.send('logado com sucesso');
+            //res.send('logado com sucesso');
+            res.redirect('/home',validar);
          }else{
-            res.send('fail')
+            res.status(404).send({mensage:'erro ao logar'})
          }
 
       } catch (error) {
