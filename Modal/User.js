@@ -22,7 +22,7 @@ class ModalUser {
     async validarUsuario(dados){
 
        // console.log(dados);
-        let sql = "SELECT * FROM `usuario` WHERE user_email = '"+dados.email+"' and user_senha = '"+dados.password+"'";
+        let sql = "SELECT * FROM `usuario` WHERE user_email = "+ con.escape(dados.email)+" and user_senha = "+ con.escape(dados.password)+"";
         const result = await con.promise().query(sql);
         return result;
     

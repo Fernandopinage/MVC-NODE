@@ -25,7 +25,7 @@ class User{
          
          if(Object.keys(validar).length > 0){
             //res.send('logado com sucesso');
-            res.redirect('/home',validar);
+            res.redirect('/home');
          }else{
             res.status(404).send({mensage:'erro ao logar'})
          }
