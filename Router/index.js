@@ -15,10 +15,11 @@ app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+/*********************************************************************************************** */
 
 /*   Rota de Leads  */
-app.get('/add/leads',Leads.adicionar);
-
+app.get('/add/leads',Leads.index);
+app.post('/insert/leads',Leads.create);
 
 /* **************** */
 
