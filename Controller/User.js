@@ -1,5 +1,6 @@
 const app = require('../Router/index')
 const ModalUser = require('../Modal/User')
+const bcrypt = require('bcrypt');
 class User{
 
     index(req,res){
@@ -18,11 +19,12 @@ class User{
     async validarLogin(req,res){
 
       let dados = req.body;
+   
 
       try {
          const [validar] = await ModalUser.validarUsuario(dados);
-         //console.log(validar)   
-         
+
+
          if(Object.keys(validar).length > 0){
             //res.send('logado com sucesso');
             res.redirect('/home');
@@ -44,8 +46,11 @@ class User{
     }
 
     async insert(req,res){
-     const insertUsuario =  await ModalUser.create(req);
-      //console.log(insertUsuario);
+
+      let dados = req.body.password;
+      let senha = await  bcrypt.hash(dados,10);
+      const insertUsuario =  await ModalUser.create(req,senha);
+      //console.log(senha);
 
     }
 
