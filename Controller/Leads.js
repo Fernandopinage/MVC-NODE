@@ -20,8 +20,8 @@ class Leads{
 
 
        const result = await ModalLeads.create(dados,dataAtual);
-       res.redirect('/add/leads');
-
+        res.render('../View/addleads',{mensage:'cadastrado com sucesso'});
+        
 
     }
 
