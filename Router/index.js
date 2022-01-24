@@ -1,13 +1,12 @@
 const User = require('../Controller/User');
 const Leads = require('../Controller/Leads');
-const path = require('path');
 const con = require('../DataBase/conection');
 const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 
-app.use(express.static('/Public'));
+app.use(express.static("Public"));
 
 
 app.engine('html', require('ejs').renderFile);
