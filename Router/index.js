@@ -1,4 +1,5 @@
-const User = require('../Controller/User')
+const User = require('../Controller/User');
+const Leads = require('../Controller/Leads');
 const con = require('../DataBase/conection');
 const express = require('express');
 const app = express();
@@ -10,6 +11,13 @@ app.set('view engine', 'html');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+/*   Rota de Leads  */
+app.get('/add/leads',Leads.adicionar);
+
+
+/* **************** */
 
 /* Rota de Usuario */
 app.get('/', User.index);

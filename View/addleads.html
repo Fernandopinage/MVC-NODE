@@ -1,0 +1,360 @@
+<%- include("layout/head.html") %>
+
+    <div class="container">
+
+        <form method="POST">
+
+            <div class="form-row">
+
+
+                <div class="form-group col-md-4">
+                    <label for="inputDate">DATA E HORA</label>
+                    <input type="text" class="form-control form-control-sm" value="" id="inputDate" disabled>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="exampleFormControlSelect1">ZONA DE AÇÃO</label>
+                    <select class="form-control form-control-sm" name="zona" id="zona" onchange="Zona()">
+
+                        <option></option>
+                        <option value="zn">ZONA NORTE</option>
+                        <option value="zl">ZONA LESTE</option>
+                        <option value="zs">ZONA SUL</option>
+                        <option value="zo">ZONA OESTE</option>
+                        <option value="zcs">ZONA CENTRO-SUL</option>
+                        <option value="zco">ZONA CENTRO-OESTE</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-4" id="norte" style="display:none;">
+                    <label for="exampleFormControlSelect1">BAIRROS</label>
+                    <select class="form-control form-control-sm" name="bairro[]">
+
+                        <option></option>
+                        <option>Cidade de Deus</option>
+                        <option>Cidade Nova</option>
+                        <option>Colônia Santo Antônio</option>
+                        <option>Colônia Terra Nova</option>
+                        <option>Lago Azul</option>
+                        <option>Monte das Oliveiras</option>
+                        <option>Nova Cidade</option>
+                        <option>Novo Aleixo</option>
+                        <option>Novo Israel</option>
+                        <option>Santa Etelvina</option>
+
+
+
+
+                    </select>
+
+
+                </div>
+
+                <div class="form-group col-md-4" id="leste" style="display:none;">
+                    <label for="exampleFormControlSelect1">BAIRROS</label>
+                    <select class="form-control form-control-sm" name="bairro[]">
+
+                        <option></option>
+                        <option>Armando Mendes</option>
+                        <option>Colônia Antônio Aleixo</option>
+                        <option>Coroado</option>
+                        <option>Distrito Industrial II</option>
+                        <option>Gilberto Mestrinho</option>
+                        <option>Jorge Teixeira</option>
+                        <option>Mauazinho</option>
+                        <option>Puraquequara</option>
+                        <option>São José Operário</option>
+                        <option>Tancredo Neves</option>
+                        <option>Zumbi dos Palmares</option>
+
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4" id="sul" style="display:none;">
+                    <label for="exampleFormControlSelect1">BAIRROS</label>
+                    <select class="form-control form-control-sm" name="bairro[]">
+
+                        <option></option>
+                        <option>Betânia</option>
+                        <option>Cachoeirinha</option>
+                        <option>Centro</option>
+                        <option>Colônia Oliveira Machado</option>
+                        <option>Crespo</option>
+                        <option>Distrito Industrial I</option>
+                        <option>Educandos</option>
+                        <option>Japiim</option>
+                        <option>Morro da Liberdade</option>
+                        <option>Nossa Senhora Aparecida</option>
+                        <option>Petrópolis</option>
+                        <option>Praça 14 de Janeiro</option>
+                        <option>Presidente Vargas</option>
+                        <option>Raiz</option>
+                        <option>Santa Luzia</option>
+                        <option>São Francisco</option>
+                        <option>São Lázaro</option>
+                        <option>Vila Buriti</option>
+
+
+
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-4" id="oeste" style="display:none;">
+                    <label for="exampleFormControlSelect1">BAIRROS</label>
+                    <select class="form-control form-control-sm" name="bairro[]">
+
+                        <option></option>
+                        <option>Compensa</option>
+                        <option>Glória</option>
+                        <option>Lírio do Vale</option>
+                        <option>Nova Esperança</option>
+                        <option>Ponta Negra</option>
+                        <option>Santo Agostinho</option>
+                        <option>Santo Antônio</option>
+                        <option>São Jorge</option>
+                        <option>São Raimundo</option>
+                        <option>Tarumã</option>
+                        <option>Tarumã-Açu</option>
+                        <option>Vila da Prata</option>
+
+
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-4" id="centrosul" style="display:none;">
+                    <label for="exampleFormControlSelect1">BAIRROS</label>
+                    <select class="form-control form-control-sm" name="bairro[]">
+
+                        <option></option>
+                        <option>Adrianópolis</option>
+                        <option>Aleixo</option>
+                        <option>Chapada</option>
+                        <option>Flores</option>
+                        <option>Nossa Senhora das Graças</option>
+                        <option>Parque 10 de Novembro</option>
+                        <option>São Geraldo</option>
+
+
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-4" id="centroeste" style="display:none;">
+                    <label for="exampleFormControlSelect1">BAIRROS</label>
+                    <select class="form-control form-control-sm" name="bairro[]">
+
+                        <option></option>
+                        <option>Alvorada</option>
+                        <option>Da Paz</option>
+                        <option>Dom Pedro</option>
+                        <option>Planalto</option>
+                        <option>Redenção</option>
+
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmpresa">EMPRESA</label>
+                    <input type="empresa" class="form-control form-control-sm" id="inputEmpresa" name="empresa">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputCnpj">CNPJ</label>
+                    <input type="cnpj" class="form-control form-control-sm" id="inputCnpj" name="cnpj">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputContato">CONTATO</label>
+                        <input type="contato" class="form-control form-control-sm" id="inputContato" name="contato">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">EMAIL</label>
+                        <input type="Email" class="form-control form-control-sm" id="inputEmail" name="email">
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="inputcargo">CARGO</label>
+                        <input type="cargo" class="form-control form-control-sm" id="inputCargo" name="cargo">
+                    </div>
+
+
+
+
+                    <div class="form-group col-md-6">
+                        <label for="inputTel">TEL</label>
+                        <input type="tel" class="form-control form-control-sm" id="inputTel" name="telefone">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <div class="form-check">
+                            <label class="form-check-label" for="possuiti">
+                                <input class="form-check-input" type="checkbox" id="possuiti" onclick="possui()">
+                                EMPRESA POSSUI TI
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4 " id="sistemAtual" style="display:none;">
+                        <label for="sistemaAtual">SISTEMA ATUAL</label>
+                        <input type="sistemaatual" class="form-control form-control-sm" name="sistema">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <div class="form-check">
+                            <label class="form-check-label" for="possuimarketing">
+                                <input class="form-check-input " type="checkbox" id="possuimarketing"
+                                    onclick="marketing()">
+                                POSSUI MARKETING
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4 " id="marketingAtual" style="display:none;">
+                        <label for="inputSistemaAtual">EMPRESA DE MARKETING ATUAL</label>
+                        <input type="sistemaatual" class="form-control form-control-sm" name="market">
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="Observacoes" class="form-label">OBSERVAÇÕES</label>
+                        <textarea class="form-control form-control-sm" id="Observacoes" rows="3"
+                            name="observacao"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12" class="text-end" style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" name="form-save">Salvar</button>
+                </div>
+            </div>
+    </div>
+
+
+    </form>
+
+
+    </div>
+
+    <script>
+        function possui() {
+
+            if (document.getElementById('possuiti').checked) {
+
+                document.getElementById('sistemAtual').style.display = 'block'
+            } else {
+                document.getElementById('sistemAtual').style.display = 'none'
+            }
+        }
+
+
+        function marketing() {
+
+            if (document.getElementById('possuimarketing').checked) {
+
+                document.getElementById('marketingAtual').style.display = 'block'
+            } else {
+                document.getElementById('marketingAtual').style.display = 'none'
+            }
+        }
+    </script>
+
+    <script>
+        //var zona = document.getElementById('zona');
+
+        //console.log(zona)
+
+        function Zona() {
+
+            var zona = document.getElementById('zona').value
+            console.log(zona)
+
+            if (zona == '') {
+                document.getElementById('norte').style.display = 'none';
+                document.getElementById('leste').style.display = 'none';
+                document.getElementById('sul').style.display = 'none';
+                document.getElementById('oeste').style.display = 'none';
+                document.getElementById('centrosul').style.display = 'none';
+                document.getElementById('centroeste').style.display = 'none';
+            }
+
+            if (zona == 'zn') {
+
+                document.getElementById('norte').style.display = 'block';
+                document.getElementById('leste').style.display = 'none';
+                document.getElementById('sul').style.display = 'none';
+                document.getElementById('oeste').style.display = 'none';
+                document.getElementById('centrosul').style.display = 'none';
+                document.getElementById('centroeste').style.display = 'none';
+            }
+
+            if (zona == 'zl') {
+
+                document.getElementById('leste').style.display = 'block';
+                document.getElementById('norte').style.display = 'none';
+                document.getElementById('sul').style.display = 'none';
+                document.getElementById('oeste').style.display = 'none';
+                document.getElementById('centrosul').style.display = 'none';
+                document.getElementById('centroeste').style.display = 'none';
+            }
+
+
+            if (zona == 'zs') {
+
+                document.getElementById('sul').style.display = 'block';
+                document.getElementById('oeste').style.display = 'none';
+                document.getElementById('norte').style.display = 'none';
+                document.getElementById('leste').style.display = 'none';
+                document.getElementById('centrosul').style.display = 'none';
+                document.getElementById('centroeste').style.display = 'none';
+            }
+
+
+            if (zona == 'zo') {
+
+                document.getElementById('oeste').style.display = 'block';
+                document.getElementById('sul').style.display = 'none';
+                document.getElementById('leste').style.display = 'none';
+                document.getElementById('norte').style.display = 'none';
+                document.getElementById('centrosul').style.display = 'none';
+                document.getElementById('centroeste').style.display = 'none';
+            }
+            if (zona == 'zcs') {
+
+                document.getElementById('centrosul').style.display = 'block';
+                document.getElementById('sul').style.display = 'none';
+                document.getElementById('leste').style.display = 'none';
+                document.getElementById('norte').style.display = 'none';
+                document.getElementById('oeste').style.display = 'none';
+                document.getElementById('centroeste').style.display = 'none';
+            }
+
+
+            if (zona == 'zco') {
+
+                document.getElementById('centroeste').style.display = 'block';
+                document.getElementById('sul').style.display = 'none';
+                document.getElementById('leste').style.display = 'none';
+                document.getElementById('norte').style.display = 'none';
+                document.getElementById('oeste').style.display = 'none';
+                document.getElementById('centrosul').style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+    <%- include("layout/footer.html") %>
