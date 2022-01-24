@@ -43,8 +43,10 @@ class User{
        res.render('../View/create')
     }
 
-    insert(req,res){
-     const insertUsuario =  ModalUser.create(req);
+    async insert(req,res){
+     const insertUsuario =  await ModalUser.create(req);
+      //console.log(insertUsuario);
+
     }
 
     async select(req,res){
