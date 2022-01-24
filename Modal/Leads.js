@@ -5,14 +5,9 @@ const app = require('../Router/index');
 class ModalLeads {
 
 
-    async create(dados) {
+    async create(dados,dataAtual) {
 
-        var data = new Date();
 
-        var dia = String(data.getDate()).padStart(2,'0');
-        var mes = String(data.getMonth()+1).padStart(2,'0');
-        var ano = data.getFullYear();
-        var dataAtual = dia+"/"+mes+"/"+ano;
 
         var bairro = dados.bairro;
         let bairroValor = bairro.find(bairro => bairro != null);
