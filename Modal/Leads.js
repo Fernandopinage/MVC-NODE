@@ -20,7 +20,7 @@ class ModalLeads {
 
     async home(){
 
-        let sql = "SELECT * FROM `leads`";
+        let sql = "SELECT * FROM `leads` ORDER BY `leads`.`leads_id` DESC LIMIT 10";
         const [result] = await con.promise().query(sql)
         return result;
 

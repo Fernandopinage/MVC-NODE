@@ -63,7 +63,10 @@ class User {
       let dados = req.body.password;
       let senha = await bcrypt.hash(dados, 10);
       const insertUsuario = await ModalUser.create(req, senha);
-      //console.log(senha);
+      if(insertUsuario.affectedRows > 0){
+
+         res.redirect('/');
+      }
 
    }
 
