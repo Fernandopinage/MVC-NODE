@@ -25,7 +25,7 @@ app.post('/insert/leads',Leads.create);
 
 /* Rota de Usuario */
 app.get('/', User.index);
-app.get('/home',User.home);
+app.get('/home/:id',User.home);
 app.post('/login/validar',User.validarLogin)
 app.get('/user/all', User.select)
 app.get('/novo/usuario',User.create);

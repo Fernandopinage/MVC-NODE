@@ -15,10 +15,12 @@ class User {
 
    async home(req, res) {
 
-      const valores = await ModalLeads.home();
+      let pagina = req.params;
+
+     const valores = await ModalLeads.home();
 
       res.render('../View/home',{ lista: valores });
-
+      console.log(pagina)
    }
 
    async validarLogin(req, res) {
@@ -33,7 +35,7 @@ class User {
             const hash = await bcrypt.compare(dados.password, validar.user_senha, (err, result) => {
                if (result == true) {
 
-                     res.redirect('/home');
+                     res.redirect('/home/1');
 
                } else {
                   res.status(404).send({ mensage: 'erro ao logar' })
