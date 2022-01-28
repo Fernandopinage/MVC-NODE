@@ -26,7 +26,7 @@ class User {
 
       const valores = await ModalLeads.home(count);      /* totos os usuarios */
 
-      res.render('../View/home',{ lista: valores });
+      res.render('../View/home',{ lista: valores , paginacao: page , total: calc});
    }
 
    async validarLogin(req, res) {
