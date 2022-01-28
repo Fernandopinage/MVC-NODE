@@ -18,13 +18,13 @@ class User {
       let pagina = req.params;
       
       const [paginacao] = await ModalLeads.paginacao();  /* buscando total de registro */
-      let page = pagina.id;
+      let page = pagina.id;                              /* pegando valor da URL*/
       let row = paginacao.total;                         /* exemplo 37 */
-      let calc = Math.ceil(row/10);
+      let calc = Math.ceil(row/10);                      /* calc variavel com menor tamanho no js*/
 
-      let count = (page*10)-10;
+      let count = (page*10)-10;                          /* total de linhas*/
 
-      const valores = await ModalLeads.home(count);           /* totos os usuarios */
+      const valores = await ModalLeads.home(count);      /* totos os usuarios */
 
       res.render('../View/home',{ lista: valores });
    }
