@@ -8,9 +8,10 @@
             <% if(locals.mensage){ %>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+
                 </div>
-            <% } %>
+                <% } %>
         </div>
 
         <form method="POST" action="/insert/leads">
@@ -258,4 +259,5 @@
     <script src="/Js/data.js"></script>
     <script src="/Js/checks.js"></script>
     <script src="/Js/zona.js"></script>
+    <script src="/Js/reload.js"></script>
     <%- include("layout/footer.html") %>
