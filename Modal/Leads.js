@@ -18,14 +18,23 @@ class ModalLeads {
 
     }
 
-    async home(){
+    async home(count){
 
-        let sql = "SELECT * FROM `leads` ORDER BY `leads`.`leads_id` DESC LIMIT 10";
+        let sql = "SELECT * FROM `leads` ORDER BY `leads`.`leads_id` DESC LIMIT 10 OFFSET "+count;
         const [result] = await con.promise().query(sql)
         return result;
 
         console.log(result);
 
+    }
+
+    async paginacao(){
+
+        let sql = "SELECT count(leads_id) as total FROM `leads` WHERE 1"
+        const [paginacao] = await con.promise().query(sql)
+        return paginacao;
+
+        console.log(paginacao);
     }
 
 

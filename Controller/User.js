@@ -16,11 +16,17 @@ class User {
    async home(req, res) {
 
       let pagina = req.params;
+      
+      const [paginacao] = await ModalLeads.paginacao();  /* buscando total de registro */
+      let page = pagina.id;
+      let row = paginacao.total;                         /* exemplo 37 */
+      let calc = Math.ceil(row/10);
 
-     const valores = await ModalLeads.home();
+      let count = (page*10)-10;
+
+      const valores = await ModalLeads.home(count);           /* totos os usuarios */
 
       res.render('../View/home',{ lista: valores });
-      console.log(pagina)
    }
 
    async validarLogin(req, res) {
