@@ -18,6 +18,16 @@ class ModalLeads {
 
     }
 
+    async home(){
+
+        let sql = "SELECT * FROM `leads`";
+        const [result] = await con.promise().query(sql)
+        return result;
+
+        console.log(result);
+
+    }
+
 
 }
 

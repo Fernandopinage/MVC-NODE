@@ -2,7 +2,35 @@
 
 <div class="container">
 
-    <p>teste 1</p>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Tell</th>
+            <th scope="col">Contato</th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+            <% for(i=0; i < lista.length; i++ ){ %>
+ 
+
+            <tr>
+                <th scope="col"><%= lista[i]['leads_id'] %></td>
+                <td><%= lista[i]['leads_empresa'] %></td>
+                <td><%= lista[i]['leads_cnpj'] %></td>
+                <td><%= lista[i]['leads_email'] %></td>
+                <td><%= lista[i]['leads_telefone'] %></td>
+                <td><%= lista[i]['leads_contato'] %></td>
+            </tr>
+            <% } %>
+          
+        </tbody>
+      </table>
 
 </div>
 

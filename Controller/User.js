@@ -1,5 +1,6 @@
-const app = require('../Router/index')
-const ModalUser = require('../Modal/User')
+const app = require('../Router/index');
+const ModalUser = require('../Modal/User');
+const ModalLeads = require('../Modal/Leads');
 const bcrypt = require('bcrypt');
 
 
@@ -12,9 +13,11 @@ class User {
 
    }
 
-   home(req, res) {
+   async home(req, res) {
 
-      res.render('../View/home');
+      const valores = await ModalLeads.home();
+
+      res.render('../View/home',{ lista: valores });
 
    }
 
