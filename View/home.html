@@ -44,14 +44,28 @@
         <!--  <%= paginacao %>-->
          <!-- <%= total %>-->
 
-          <% for(i=1; i <= total; i++ ){ %>
+            <% if(parseInt(paginacao)-1 != 0 ){ %>
 
-            <li class="page-item"><a class="page-link" href=<%= i %>><%= i %></a></li>
+              <li class="page-item"><a class="page-link" href=<%= parseInt(paginacao)-1 %>><%= parseInt(paginacao)-1 %></a></li>
 
-          <% } %>
+            <% }else{ %>
+
+              <li class="page-item"><a class="page-link">#</a></li>
+
+            <% } %>
+
+            
+            <li class="page-item"><a class="page-link" href=<%= paginacao %>><%= paginacao %></a></li>
+
+            <% if(parseInt(paginacao) < parseInt(total) ){ %>
+              <li class="page-item"><a class="page-link" href=<%= parseInt(paginacao)+1 %>><%= parseInt(paginacao)+1 %></a></li>
+            <% }else{ %>
+              <li class="page-item"><a class="page-link">#</a></li>
+            <% } %>
+          
           
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+            <a class="page-link" href="/home/<%= total %>" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
