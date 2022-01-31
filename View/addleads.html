@@ -225,7 +225,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="inputTel">TEL</label>
-                        <input type="tel" class="form-control form-control-sm" id="inputTel" name="telefone">
+                        <input type="tel" class="form-control form-control-sm phone-ddd-mask" id="inputTel" name="telefone"  onkeypress="mask(this, mphone);" onblur="mask(this, mphone);"  >
                     </div>
 
 
@@ -278,8 +278,5 @@
 
 
     </div>
-    <script src="/Js/data.js"></script>
-    <script src="/Js/checks.js"></script>
-    <script src="/Js/zona.js"></script>
-    <script src="/Js/reload.js"></script>
+
     <%- include("layout/footer.html") %>
