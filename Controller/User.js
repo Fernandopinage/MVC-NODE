@@ -75,22 +75,24 @@ class User {
          const [validarEmailUsuario] = await ModalUser.validarEmailUsuario(req);
 
          if (validarEmailUsuario) {
-            res.render('../View/create') // msg
+            req.flash('err_msg',"Erro o e-mail já existe!");
+            res.redirect('/novo/usuario') // msg
+      
          } else {
             let dados = req.body.password;
             let senha = await bcrypt.hash(dados, 10);
             const insertUsuario = await ModalUser.create(req, senha);
 
             if (insertUsuario.affectedRows > 0) {
-
-               res.redirect('/');
+               req.flash('success_msg',"Usúarios cadastrado com sucesso!");
+               res.redirect('/novo/usuario') // msg
             }
 
          }
 
       } else {
-
-         res.render('../View/create');
+         req.flash('err_msg',"Senha não confere!");
+         res.redirect('/novo/usuario') // msg
       }
 
    }
