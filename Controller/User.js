@@ -44,7 +44,8 @@ class User {
                   res.redirect('/home/1');
 
                } else {
-                  res.status(404).send({ mensage: 'erro ao logar' })
+                  req.flash('err_msg',"E-mail ou senha invalido!");
+                  res.redirect('/');
                }
             });
 
