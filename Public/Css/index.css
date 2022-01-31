@@ -7,3 +7,8 @@
 .container{
     margin-top: 40px;
 }
+
+.table-overflow {
+    max-height: 840px;
+    overflow-y: auto;
+}
