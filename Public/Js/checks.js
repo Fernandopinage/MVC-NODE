@@ -1,16 +1,4 @@
 
-
-
-    
-    function possui() {
-        
-        if (document.getElementById('possuiti').checked) {
-            
-            document.getElementById('sistemAtual').style.display = 'block'
-        } else {
-            document.getElementById('sistemAtual').style.display = 'none'
-        }
-    }
     
     
     function marketing() {
