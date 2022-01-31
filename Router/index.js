@@ -5,6 +5,34 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const flash = require('connect-flash');
+
+
+/******** configuração de session ********/
+
+app.use(session({
+    secret:'luizfernandoluck@hotmail.com',
+    resave: true,
+    saveUninitialized:true
+}));
+
+
+/********* configurando flash ***********/
+
+app.use(flash());
+
+
+/*********** Middlewere *****************/
+
+app.use((req, res, next)=>{
+
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.err_msg = req.flash('err_msg');
+    next();
+
+});
+
 
 app.use(express.static("Public"));
 
