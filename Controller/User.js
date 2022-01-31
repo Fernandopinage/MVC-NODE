@@ -68,12 +68,21 @@ class User {
 
    async insert(req, res) {
 
-      let dados = req.body.password;
-      let senha = await bcrypt.hash(dados, 10);
-      const insertUsuario = await ModalUser.create(req, senha);
-      if(insertUsuario.affectedRows > 0){
 
-         res.redirect('/');
+      if(req.body.password === req.body.confirme){
+
+         
+         let dados = req.body.password;
+         let senha = await bcrypt.hash(dados, 10);
+         const insertUsuario = await ModalUser.create(req, senha);
+         if(insertUsuario.affectedRows > 0){
+            
+            res.redirect('/');
+         }
+
+      }else{
+
+         res.render('../View/create');
       }
 
    }
