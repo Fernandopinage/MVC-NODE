@@ -16,17 +16,17 @@ class User {
    async home(req, res) {
 
       let pagina = req.params;
-      
+
       const [paginacao] = await ModalLeads.paginacao();  /* buscando total de registro */
       let page = pagina.id;                              /* pegando valor da URL*/
       let row = paginacao.total;                         /* exemplo 37 */
-      let calc = Math.ceil(row/10);                      /* calc variavel com menor tamanho no js*/
+      let calc = Math.ceil(row / 10);                      /* calc variavel com menor tamanho no js*/
 
-      let count = (page*10)-10;                          /* total de linhas*/
+      let count = (page * 10) - 10;                          /* total de linhas*/
 
       const valores = await ModalLeads.home(count);      /* totos os usuarios */
 
-      res.render('../View/home',{ lista: valores , paginacao: page , total: calc});
+      res.render('../View/home', { lista: valores, paginacao: page, total: calc });
    }
 
    async validarLogin(req, res) {
@@ -41,7 +41,7 @@ class User {
             const hash = await bcrypt.compare(dados.password, validar.user_senha, (err, result) => {
                if (result == true) {
 
-                     res.redirect('/home/1');
+                  res.redirect('/home/1');
 
                } else {
                   res.status(404).send({ mensage: 'erro ao logar' })
@@ -69,19 +69,26 @@ class User {
    async insert(req, res) {
 
 
-      if(req.body.password === req.body.confirme){
+      if (req.body.password === req.body.confirme) {
 
-         
-         let dados = req.body.password;
-         let senha = await bcrypt.hash(dados, 10);
-         const insertUsuario = await ModalUser.create(req, senha);
-        
-         if(insertUsuario.affectedRows > 0){
-            
-            res.redirect('/');
+
+         const [validarEmailUsuario] = await ModalUser.validarEmailUsuario(req);
+
+         if (validarEmailUsuario) {
+            res.render('../View/create') // msg
+         } else {
+            let dados = req.body.password;
+            let senha = await bcrypt.hash(dados, 10);
+            const insertUsuario = await ModalUser.create(req, senha);
+
+            if (insertUsuario.affectedRows > 0) {
+
+               res.redirect('/');
+            }
+
          }
 
-      }else{
+      } else {
 
          res.render('../View/create');
       }

@@ -24,6 +24,17 @@ class ModalUser {
     
     }
 
+    
+    async validarEmailUsuario(req){ 
+
+
+        let sql = "SELECT * FROM `usuario` WHERE user_email = "+ con.escape(req.body.email)+"";
+
+        const [result] = await con.promise().query(sql);
+        return result;
+    
+    }
+
     async select(req,res){
         let sql ='SELECT * FROM `usuario`';
         const result = await con.promise().query(sql)
