@@ -20,7 +20,7 @@ class Leads{
 
 
        const result = await ModalLeads.create(dados,dataAtual);
-        res.render('../View/addleads',{mensage:'Registro salvo com sucesso!'});
+        res.render('../View/addleads',{success:'Registro salvo com sucesso!'});
         
 
     }
