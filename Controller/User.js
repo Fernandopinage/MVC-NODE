@@ -67,6 +67,11 @@ class User {
       res.render('../View/create')
    }
 
+   adicionar(req, res) {
+
+      res.render('../View/usuario')
+   }
+
    async insert(req, res) {
 
 
