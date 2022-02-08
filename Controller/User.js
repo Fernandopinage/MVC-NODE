@@ -35,6 +35,8 @@ class User {
 
       try {
          const [validar] = await ModalUser.validarUsuario(dados);
+         console.log(validar);
+
 
          if (Object.keys(validar).length > 0) {
 

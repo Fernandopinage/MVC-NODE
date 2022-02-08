@@ -44,11 +44,11 @@
 
         <form class="row g-3 " action="/inser/usuario" method="post">
             <div class="col-md-4">
-                <label for="nome" class="form-label">Nome Completo</label>
+                <label for="nome" class="form-label">Nome Completo <span>*</span></label>
                 <input type="text" class="form-control form-control-sm" name="nome" id="nome">
             </div>
             <div class="col-md-4">
-                <label for="inputEmail4" class="form-label">Função</label>
+                <label for="inputEmail4" class="form-label">Função <span>*</span></label>
                 <select class="form-control form-control-sm" name="funcao" id="exampleFormControlSelect1">
                     <option></option>
                     <option value="ADMINISTRATIVO">ADM - ADMINISTRATIVO</option>
@@ -56,7 +56,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label for="inputEmail4" class="form-label">Email</label>
+                <label for="inputEmail4" class="form-label">Email <span>*</span></label>
                 <input type="email" class="form-control form-control-sm" name="email" id="inputEmail4">
             </div>
             <div class="col-md-4">
@@ -64,11 +64,11 @@
                 <input type="text" class="form-control form-control-sm" name="telefone" id="telefone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
             </div>
             <div class="col-md-4">
-                <label for="telefone" class="form-label">Senha</label>
+                <label for="telefone" class="form-label">Senha <span>*</span></label>
                 <input type="password" class="form-control form-control-sm" name="password" id="password">
             </div>
             <div class="col-md-4">
-                <label for="telefone" class="form-label">Confirma Senha</label>
+                <label for="telefone" class="form-label">Confirma Senha <span>*</span></label>
                 <input type="password" class="form-control form-control-sm" name="confirme" id="confirme">
             </div>
 
@@ -92,7 +92,9 @@
                 <label for="bairro" class="form-label">Bairro</label>
                 <input type="text" class="form-control form-control-sm" name="bairro" id="bairro">
             </div>
-
+            <div class="col-md-12">
+                <span>Preencha todos os campos obrigatórios *</span>
+            </div>
             <div class="col-md-12" class="text-end" style="margin-top: 20px;">
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar</button>
             </div>
