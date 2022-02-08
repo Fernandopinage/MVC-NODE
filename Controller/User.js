@@ -82,7 +82,7 @@ class User {
 
          if (validarEmailUsuario) {
             req.flash('err_msg',"Erro o e-mail já existe!");
-            res.redirect('/novo/usuario') // msg
+            res.redirect('/add/usuario') // msg
       
          } else {
             let dados = req.body.password;
@@ -98,7 +98,7 @@ class User {
 
       } else {
          req.flash('err_msg',"Senha não confere!");
-         res.redirect('/novo/usuario') // msg
+         res.redirect('/add/usuario') // msg
       }
 
    }
