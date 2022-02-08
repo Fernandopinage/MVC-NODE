@@ -9,7 +9,7 @@
   </div>
   <hr>
     <div class="table-overflow">
-    <table class="table">
+    <table class="table table-sm">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -25,7 +25,7 @@
             <% for(i=0; i < lista.length; i++ ){ %>
  
 
-                <tr>
+                <tr id="<%= lista[i]['user_ativo'] %>">
                     <th scope="col"><%= lista[i]['user_id'] %></td>
                     <td><%= lista[i]['user_nome'] %></td>
                     <td><%= lista[i]['user_email'] %></td>
