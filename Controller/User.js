@@ -129,6 +129,23 @@ class User {
 
 
    }
+
+   async delete(req,res){
+
+      let id = req.params;
+      console.log(id.id)
+     
+      const [valor] = await ModalUser.delete(id);
+      if(valor.affectedRows > 0 ){
+         
+         console.log('sim')
+
+      }else{
+         console.log('erro')
+      }
+
+
+   }
 }
 
 module.exports = new User();

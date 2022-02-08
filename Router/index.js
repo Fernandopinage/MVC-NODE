@@ -60,6 +60,7 @@ app.get('/novo/usuario',User.create);
 app.get('/add/usuario',User.adicionar);
 app.post('/inser/usuario',User.insert);
 app.get('/lista/usuario/:id',User.select);
+app.get('/delete/usuario/:id',User.delete);
 /* **************** */
 
 

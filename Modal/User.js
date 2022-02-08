@@ -51,6 +51,14 @@ class ModalUser {
         console.log(paginacao);
     }
 
+    async delete(id){
+
+        let valor = id.id;
+
+        let sql = "UPDATE `usuario` SET `user_ativo`= 'n' WHERE user_id ='"+valor+"'";
+        const result = await con.promise().query(sql)
+        return result;
+    }
 
 }
 
