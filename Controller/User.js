@@ -133,17 +133,20 @@ class User {
    async delete(req,res){
 
       let id = req.params;
-      console.log(id.id)
+
+      console.log(id)
      
       const [valor] = await ModalUser.delete(id);
       if(valor.affectedRows > 0 ){
-         
-         console.log('sim')
+
+         let url = '/lista/usuario/'+id.pa;
+         req.flash('success_msg',"Registro bloqueado com sucesso!");
+         res.redirect(url);
 
       }else{
          console.log('erro')
       }
-
+      
 
    }
 }
