@@ -91,7 +91,7 @@ class User {
 
             if (insertUsuario.affectedRows > 0) {
                req.flash('success_msg',"Usúarios cadastrado com sucesso!");
-               res.redirect('/novo/usuario') // msg
+               res.redirect('/add/usuario') // msg
             }
 
          }
