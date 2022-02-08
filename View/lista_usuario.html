@@ -1,0 +1,78 @@
+<%- include("layout/head.html") %>
+
+
+<div class="container"> 
+
+    <div class="table-overflow">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Tell</th>
+            <th scope="col">Função</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(i=0; i < lista.length; i++ ){ %>
+ 
+
+                <tr>
+                    <th scope="col"><%= lista[i]['user_id'] %></td>
+                    <td><%= lista[i]['user_nome'] %></td>
+                    <td><%= lista[i]['user_email'] %></td>
+                    <td><%= lista[i]['user_telefone'] %></td>
+                    <td><%= lista[i]['user_funcao'] %></td>
+                </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div>
+        <hr>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="/home/1" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+        <!--  <%= paginacao %>-->
+         <!-- <%= total %>-->
+
+            <% if(parseInt(paginacao)-1 != 0 ){ %>
+
+              <li class="page-item"><a class="page-link" href=<%= parseInt(paginacao)-1 %>><%= parseInt(paginacao)-1 %></a></li>
+
+            <% }else{ %>
+
+              <li class="page-item"><a class="page-link">#</a></li>
+
+            <% } %>
+
+            
+            <li class="page-item"><a class="page-link" href=<%= paginacao %>><%= paginacao %></a></li>
+
+            <% if(parseInt(paginacao) < parseInt(total) ){ %>
+              <li class="page-item"><a class="page-link" href=<%= parseInt(paginacao)+1 %>><%= parseInt(paginacao)+1 %></a></li>
+            <% }else{ %>
+              <li class="page-item"><a class="page-link">#</a></li>
+            <% } %>
+          
+          
+          <li class="page-item">
+            <a class="page-link" href="/home/<%= total %>" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    
+</div>
+
+<%- include("layout/footer.html") %>

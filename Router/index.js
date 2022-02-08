@@ -54,11 +54,12 @@ app.post('/insert/leads',Leads.create);
 /* Rota de Usuario */
 app.get('/', User.index);
 app.get('/home/:id',User.home);
-app.post('/login/validar',User.validarLogin)
-app.get('/user/all', User.select)
+app.post('/login/validar',User.validarLogin);
+app.get('/user/all', User.select);
 app.get('/novo/usuario',User.create);
-app.get('/add/usuario',User.adicionar)
+app.get('/add/usuario',User.adicionar);
 app.post('/inser/usuario',User.insert);
+app.get('/lista/usuario/:id',User.select);
 /* **************** */
 
 

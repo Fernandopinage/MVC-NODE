@@ -35,10 +35,20 @@ class ModalUser {
     
     }
 
-    async select(req,res){
-        let sql ='SELECT * FROM `usuario`';
-        const result = await con.promise().query(sql)
+    async select(count){
+        let sql ="SELECT * FROM `usuario` ORDER BY `usuario`.`user_id` DESC LIMIT 10 OFFSET "+count;
+        const [result] = await con.promise().query(sql)
         return result;
+    }
+
+
+    async paginacao(){
+
+        let sql = "SELECT count(user_id) as total FROM `usuario` WHERE 1"
+        const [paginacao] = await con.promise().query(sql)
+        return paginacao;
+
+        console.log(paginacao);
     }
 
 

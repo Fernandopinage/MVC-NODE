@@ -105,11 +105,20 @@ class User {
 
    async select(req, res) {
 
-      try {
-         var [selectUsuario] = await ModalUser.select();
-         console.log(selectUsuario);
+      let pagina = req.params;
 
-         res.send(selectUsuario);
+
+      try {
+
+         var [paginacao] = await ModalUser.paginacao();     /* buscando total de registro */
+         let page = pagina.id;                              /* pegando valor da URL*/
+         let row = paginacao.total;                         /* exemplo 37 */
+         let calc = Math.ceil(row / 10);
+         let count = (page * 10) - 10;                          /* total de linhas*/
+
+         var valores = await ModalUser.select(count);
+         console.log(valores);
+         res.render('../View/lista_usuario',{ lista: valores, paginacao: page, total: calc });
 
       } catch (error) {
 
