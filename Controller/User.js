@@ -34,10 +34,10 @@ class User {
       let dados = req.body;
 
       try {
-         const [validar] = await ModalUser.validarUsuario(dados);
+         const validar = await ModalUser.validarUsuario(dados);
          console.log(validar);
 
-
+         
          if (Object.keys(validar).length > 0) {
 
             const hash = await bcrypt.compare(dados.password, validar.user_senha, (err, result) => {
@@ -53,8 +53,10 @@ class User {
 
 
          } else {
+            req.flash('err_msg',"E-mail ou senha invalido!");
             res.redirect('/');
          }
+         
 
       } catch (error) {
 
