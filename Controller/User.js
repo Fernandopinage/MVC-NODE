@@ -2,7 +2,7 @@ const app = require('../Router/index');
 const ModalUser = require('../Modal/User');
 const ModalLeads = require('../Modal/Leads');
 const bcrypt = require('bcrypt');
-
+var session = require('express-session');
 
 class User {
 

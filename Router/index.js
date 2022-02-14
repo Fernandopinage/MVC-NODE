@@ -5,12 +5,14 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+var session = require('express-session');
 const flash = require('connect-flash');
 
 
 /******** configuração de session ********/
 
+app.use(session({ secret: 'luizfernandoluck@hotmail.com', cookie: { maxAge: 60000 }})) // criando chave senha session
+//app.set('trust proxy', 1) // trust first proxy
 app.use(session({
     secret:'luizfernandoluck@hotmail.com',
     resave: true,
