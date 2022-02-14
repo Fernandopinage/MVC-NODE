@@ -34,13 +34,14 @@ class User {
       let dados = req.body;
 
       try {
-         const validar = await ModalUser.validarUsuario(dados);
-         console.log(validar);
-
+         const [validar] = await ModalUser.validarUsuario(dados);
          
-         if (Object.keys(validar).length > 0) {
+         if (validar) {
+            
 
             const hash = await bcrypt.compare(dados.password, validar.user_senha, (err, result) => {
+
+              
                if (result == true) {
 
                   res.redirect('/home/1');
